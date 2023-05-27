@@ -2,7 +2,9 @@ package services
 
 import (
 	"encoding/json"
+	. "github.com/shivansh98/kahawatein/utilities"
 	"io/ioutil"
+	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -12,9 +14,18 @@ import (
 )
 
 func InitHTTPServer() {
+	defer func() {
+		if r := recover(); r != nil {
+			Logger.Println("We got a panic in InitHTTPServer")
+		}
+	}()
+	Logger.Println("starting http server")
 	r := gin.Default()
 	r.POST("/api/v1/signup", SignUp)
-
+	err := http.ListenAndServe("localhost:8080", r)
+	if err != nil {
+		Logger.Println("error occured ", err)
+	}
 }
 
 func SignUp(c *gin.Context) {
@@ -26,7 +37,7 @@ func SignUp(c *gin.Context) {
 	req := dto.SignUpRequest{}
 	err = json.Unmarshal(b, &req)
 	if err != nil {
-		c.AbortWithStatusJSON(404, "Error unmarshaling request body")
+		c.AbortWithStatusJSON(404, `{"error":"Error unmarshaling request body"}`)
 	}
 	user := models.User{
 		Username: req.Username,
@@ -35,6 +46,7 @@ func SignUp(c *gin.Context) {
 	}
 	jwt, err := database.CreateUserProfile(c.Request.Context(), &user)
 	if err != nil {
+		Logger.Println("got an error in creating jwt token ", err)
 		c.AbortWithStatusJSON(404, "failed to create user profile")
 		return
 	}
