@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f1781e5-e4cf-4497-b7bd-912665072b71" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/utilities/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/database/auth_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/database/auth_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/database/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/database/conn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/database/models/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/database/models/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/bootstrap.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/middlewear/auth.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/services/feed.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/cache/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/cache/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/database/auth_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/database/auth_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/database/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/database/conn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapter/database/models/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/database/models/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/bootstrap/bootstrap.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constant/constants.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/constant/constants.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/dto/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilities/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/services/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/services/init.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +58,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -83,5 +88,19 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/bootstrap/bootstrap.go</url>
+          <line>20</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="DlvErrorBreakpoint" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

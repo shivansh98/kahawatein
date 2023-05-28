@@ -32,5 +32,5 @@ func (r *Redis) Set(key, value string) (string, error) {
 
 func (r *Redis) Get(key string) (value string) {
 	val := r.Client.Get(r.Client.Context(), key)
-	return val.String()
+	return val.Val()
 }

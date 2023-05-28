@@ -3,8 +3,7 @@ package bootstrap
 import (
 	"github.com/go-redis/redis/v8"
 	"github.com/gookit/ini/v2/dotenv"
-	"github.com/shivansh98/kahawatein/adapter/cache"
-	"github.com/shivansh98/kahawatein/services"
+	"github.com/shivansh98/kahawatein/internal/adapter/cache"
 	"github.com/shivansh98/kahawatein/utilities"
 	"github.com/spf13/viper"
 )
@@ -21,6 +20,4 @@ func InitServices() {
 	}
 	cache.InitRedisClient(&rp)
 	utilities.InitLogger()
-	services.InitHTTPServer()
-
 }

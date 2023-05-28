@@ -2,14 +2,14 @@ package database
 
 import (
 	"fmt"
+	"github.com/shivansh98/kahawatein/internal/adapter/cache"
+	"github.com/shivansh98/kahawatein/internal/adapter/database/models"
+	"github.com/shivansh98/kahawatein/internal/constant"
 	"log"
 	"strings"
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/shivansh98/kahawatein/adapter/cache"
-	"github.com/shivansh98/kahawatein/adapter/database/models"
-	"github.com/shivansh98/kahawatein/constant"
 	"github.com/spf13/viper"
 	"golang.org/x/net/context"
 )
@@ -24,8 +24,8 @@ func CreateUserProfile(ctx context.Context, u *models.User) (string, error) {
 		return "", fmt.Errorf("user already exists")
 	}
 	var err error
-	var jwt string
-	jwt, err = createJWT(u)
+	var jwtoken string
+	jwtoken, err = createJWT(u)
 	if err != nil {
 		return "", err
 	}
@@ -39,11 +39,11 @@ func CreateUserProfile(ctx context.Context, u *models.User) (string, error) {
 	}
 
 	r := cache.GetRedisClient()
-	if _, err = r.Set(u.Username, jwt); err != nil {
+	if _, err = r.Set(jwtoken, u.Username); err != nil {
 		log.Default().Println("error in inserting the key in redis")
 	}
 
-	return jwt, nil
+	return jwtoken, nil
 }
 
 func IsUserExists(ctx context.Context, u *models.User) bool {

@@ -2,31 +2,14 @@ package services
 
 import (
 	"encoding/json"
+	"github.com/gin-gonic/gin"
+	"github.com/shivansh98/kahawatein/internal/adapter/database"
+	"github.com/shivansh98/kahawatein/internal/adapter/database/models"
+	"github.com/shivansh98/kahawatein/internal/dto"
 	. "github.com/shivansh98/kahawatein/utilities"
 	"io/ioutil"
-	"net/http"
 	"time"
-
-	"github.com/gin-gonic/gin"
-	"github.com/shivansh98/kahawatein/adapter/database"
-	"github.com/shivansh98/kahawatein/adapter/database/models"
-	"github.com/shivansh98/kahawatein/dto"
 )
-
-func InitHTTPServer() {
-	defer func() {
-		if r := recover(); r != nil {
-			Logger.Println("We got a panic in InitHTTPServer")
-		}
-	}()
-	Logger.Println("starting http server")
-	r := gin.Default()
-	r.POST("/api/v1/signup", SignUp)
-	err := http.ListenAndServe("localhost:8080", r)
-	if err != nil {
-		Logger.Println("error occured ", err)
-	}
-}
 
 func SignUp(c *gin.Context) {
 	b, err := ioutil.ReadAll(c.Request.Body)
