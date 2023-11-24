@@ -7,25 +7,32 @@ import (
 	"github.com/shivansh98/kahawatein/internal/services"
 	"github.com/shivansh98/kahawatein/utilities"
 	"github.com/spf13/viper"
-	"sync"
-	"time"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
 	err := dotenv.Load("./", ".env")
+	ctx, cancel := signal.NotifyContext(context.TODO(), syscall.SIGTERM, syscall.SIGKILL)
 	if err != nil {
 		utilities.CallPanic(err)
 	}
 	viper.AutomaticEnv()
 	bootstrap.InitServices()
-	ctx, cancel := context.WithCancel(context.TODO())
-	var wg sync.WaitGroup
+	srv := services.InitHTTPServer()
+
 	go func() {
-		wg.Add(1)
-		services.InitHTTPServer(ctx)
-		wg.Done()
+		err = srv.ListenAndServe()
+		if err != nil {
+			utilities.Logger.Println("Errror")
+		}
 	}()
-	time.Sleep(1 * time.Second)
-	wg.Wait()
+
+	<-ctx.Done()
+	utilities.Logger.Println("Signal received")
+	err = srv.Shutdown(ctx)
+	if err != nil {
+		utilities.Logger.Println(err)
+	}
 	cancel()
 }
