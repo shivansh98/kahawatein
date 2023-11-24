@@ -2,19 +2,30 @@ package services
 
 import (
 	"github.com/gin-gonic/gin"
+	external_service "github.com/shivansh98/kahawatein/internal/services/external-service"
 	"net/http"
 )
 
+type FeedReq struct {
+	Query string `json:"query"`
+}
+
 func Feed(c *gin.Context) {
-	var user any
-	var exists bool
-	if user, exists = c.Get("username"); !exists {
-		c.AbortWithStatus(http.StatusBadRequest)
+	//var user any
+	//var exists bool
+	//if user, exists = c.Get("username"); !exists {
+	//	c.AbortWithStatus(http.StatusBadRequest)
+	//	return
+	//}
+	fdRq := FeedReq{}
+	err := c.BindJSON(&fdRq)
+	if err != nil {
+		c.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
-	c.IndentedJSON(http.StatusOK, map[string]string{
-		"status": "ok",
-		"feed":   "here will be feed .definitely",
-		"user":   "thanks for logging in user" + user.(string),
+	resp := external_service.SearchUnsplash(c.Request.Context(), fdRq.Query)
+	c.IndentedJSON(http.StatusOK, map[string]interface{}{
+		//"user":     user.(string),
+		"response": resp,
 	})
 }

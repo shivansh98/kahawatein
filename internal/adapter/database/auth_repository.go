@@ -40,7 +40,7 @@ func CreateUserProfile(ctx context.Context, u *models.User) (string, error) {
 
 	r := cache.GetRedisClient()
 	if _, err = r.Set(jwtoken, u.Username); err != nil {
-		log.Default().Println("error in inserting the key in redis")
+		log.Default().Println(fmt.Sprintf("error in inserting the key in redis %s", err))
 	}
 
 	return jwtoken, nil

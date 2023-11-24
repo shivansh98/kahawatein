@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"github.com/gookit/ini/v2/dotenv"
+	"github.com/shivansh98/kahawatein/internal/adapter"
 	"github.com/shivansh98/kahawatein/internal/bootstrap"
-	"github.com/shivansh98/kahawatein/internal/services"
 	"github.com/shivansh98/kahawatein/utilities"
 	"github.com/spf13/viper"
 	"os/signal"
@@ -19,7 +19,7 @@ func main() {
 	}
 	viper.AutomaticEnv()
 	bootstrap.InitServices()
-	srv := services.InitHTTPServer()
+	srv := adapter.InitHTTPServer()
 
 	go func() {
 		err = srv.ListenAndServe()
