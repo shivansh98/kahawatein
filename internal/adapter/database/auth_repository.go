@@ -25,7 +25,7 @@ func CreateUserProfile(ctx context.Context, u *models.User) (string, error) {
 	}
 	var err error
 	var jwtoken string
-	jwtoken, err = createJWT(u)
+	jwtoken, err = CreateJWT(u)
 	if err != nil {
 		return "", err
 	}
@@ -63,7 +63,7 @@ func IsUserExists(ctx context.Context, u *models.User) bool {
 	return false
 }
 
-func createJWT(u *models.User) (string, error) {
+func CreateJWT(u *models.User) (string, error) {
 	claims := Claims{
 		Username: u.Username,
 	}

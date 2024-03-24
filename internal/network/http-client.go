@@ -20,7 +20,6 @@ func GetClient() *http.Client {
 
 // this will run before main function
 func init() {
-	log.Println("HEHEHEHEHEHE")
 	client = &http.Client{
 		Timeout:   time.Second * 100,
 		Transport: http.DefaultTransport,

@@ -9,16 +9,26 @@ import (
 const DefaultTTL = 600
 
 type Redis struct {
-	Client *redis.Client
+	Client redis.UniversalClient
 }
 
 var RedisClient *Redis
 
-func InitRedisClient(rp *redis.Options) *Redis {
+func InitRedisClient(opt *redis.Options) *Redis {
 	if RedisClient != nil {
 		return RedisClient
 	}
-	RedisClient = &Redis{Client: redis.NewClient(rp)}
+	cl := redis.NewUniversalClient(&redis.UniversalOptions{
+		Addrs:     []string{opt.Addr},
+		Username:  opt.Username,
+		Password:  opt.Password,
+		DB:        opt.DB,
+		PoolSize:  opt.PoolSize,
+		TLSConfig: opt.TLSConfig,
+	})
+	RedisClient = &Redis{
+		Client: cl,
+	}
 	return RedisClient
 }
 

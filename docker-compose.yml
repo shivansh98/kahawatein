@@ -1,4 +1,8 @@
 services:
+  cache:
+    image: redis:latest
+    ports:
+      - 6379:6379
   kahawatein:
     image: kahawatein:latest
     ports:
@@ -8,7 +12,5 @@ services:
       - ./:/app
     env_file:
       - .env
-  redis:
-    image: redis:latest
-    ports:
-      - 6379:6379
+    depends_on:
+      - cache

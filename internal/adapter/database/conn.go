@@ -22,7 +22,7 @@ func GetConnection(ctx context.Context) *mongo.Client {
 	var err error
 	mongoClient, err = mongo.Connect(ctx, clientOptions)
 	if err != nil {
-		log.Fatal(err)
+		log.Panic(err)
 	}
 	return mongoClient
 }

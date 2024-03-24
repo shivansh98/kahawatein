@@ -15,7 +15,7 @@ func InitServices() {
 	}
 	viper.AutomaticEnv()
 	rp := redis.Options{
-		Addr: viper.GetString("REDIS_ADDRESS"),
+		Addr: viper.GetString("REDIS_HOST") + ":" + viper.GetString("REDIS_PORT"),
 		DB:   viper.GetInt("REDIS_DATABASE"),
 	}
 	cache.InitRedisClient(&rp)

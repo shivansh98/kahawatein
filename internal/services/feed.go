@@ -11,12 +11,6 @@ type FeedReq struct {
 }
 
 func Feed(c *gin.Context) {
-	//var user any
-	//var exists bool
-	//if user, exists = c.Get("username"); !exists {
-	//	c.AbortWithStatus(http.StatusBadRequest)
-	//	return
-	//}
 	fdRq := FeedReq{}
 	err := c.BindJSON(&fdRq)
 	if err != nil {
@@ -25,7 +19,6 @@ func Feed(c *gin.Context) {
 	}
 	resp := external_service.SearchUnsplash(c.Request.Context(), fdRq.Query)
 	c.IndentedJSON(http.StatusOK, map[string]interface{}{
-		//"user":     user.(string),
 		"response": resp,
 	})
 }

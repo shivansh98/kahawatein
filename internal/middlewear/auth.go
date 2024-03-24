@@ -13,13 +13,13 @@ func AuthMiddleWear(c *gin.Context) {
 	ck, err := req.Cookie("token")
 	if err != nil {
 		Logger.Println("auth middlewear got an error ", "error in fetching cookie token error:", err)
-		c.AbortWithError(http.StatusBadRequest, err)
+		c.AbortWithStatusJSON(http.StatusBadRequest, err.Error())
 		return
 	}
 	val := cache.GetRedisClient().Get(ck.Value)
 	if val == "" {
 		Logger.Println("auth middlewear got an error ", "user not authorized:")
-		c.AbortWithError(http.StatusBadRequest, fmt.Errorf("user not authorized"))
+		c.AbortWithStatusJSON(http.StatusBadRequest, fmt.Errorf("user not authorized").Error())
 		return
 	}
 

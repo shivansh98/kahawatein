@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f1781e5-e4cf-4497-b7bd-912665072b71" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/network/http-client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/services/external-service/unsplash-service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapter/cache/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/cache/redis.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/adapter/database/auth_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/database/auth_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapter/database/conn.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/database/conn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/adapter/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/bootstrap/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/bootstrap/bootstrap.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/middlewear/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middlewear/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/network/http-client.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/network/http-client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/services/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/services/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/services/feed.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/services/feed.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/services/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/adapter/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +48,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
@@ -58,7 +59,8 @@
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/shivanshtamrakar/go/src/github.com/shivansh98/kahawatein&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -90,6 +92,13 @@
         <item itemvalue="Go Build.go build github.com/shivansh98/kahawatein" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.14475.38" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
