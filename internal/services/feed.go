@@ -7,14 +7,14 @@ import (
 )
 
 type FeedReq struct {
-	Query string `json:"query"`
+	Query string `json:"query" form:"query"`
 }
 
 func Feed(c *gin.Context) {
 	fdRq := FeedReq{}
-	err := c.BindJSON(&fdRq)
+	err := c.BindQuery(&fdRq)
 	if err != nil {
-		c.AbortWithError(http.StatusBadRequest, err)
+		c.AbortWithStatusJSON(http.StatusBadRequest, err)
 		return
 	}
 	resp := external_service.SearchUnsplash(c.Request.Context(), fdRq.Query)

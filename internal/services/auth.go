@@ -9,6 +9,7 @@ import (
 	"github.com/shivansh98/kahawatein/internal/dto"
 	. "github.com/shivansh98/kahawatein/utilities"
 	"io/ioutil"
+	"net/http"
 	"time"
 )
 
@@ -76,4 +77,8 @@ func SignIn(c *gin.Context) {
 	}
 	c.SetCookie("token", jwt, int(time.Now().Add(10*time.Minute).Unix()), "", ":8080", true, true)
 	c.IndentedJSON(200, "success")
+}
+
+func Home(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, "Helllo")
 }

@@ -16,10 +16,11 @@ func InitHTTPServer() *http.Server {
 	// singup
 	r.POST("/api/v1/signup", services.SignUp)
 	r.POST("/api/v1/signin", services.SignIn)
+	r.GET("/", services.Home)
 	// All auth based routes go here
 	auth := r.Group("/api/v1/auth")
 	auth.Use(middlewear.AuthMiddleWear)
-	auth.POST("/feed", services.Feed)
+	auth.GET("/feed", services.Feed)
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: r.Handler(),
