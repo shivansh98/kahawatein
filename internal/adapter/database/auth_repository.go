@@ -2,12 +2,13 @@ package database
 
 import (
 	"fmt"
-	"github.com/shivansh98/kahawatein/internal/adapter/cache"
-	"github.com/shivansh98/kahawatein/internal/adapter/database/models"
-	"github.com/shivansh98/kahawatein/internal/constant"
 	"log"
 	"strings"
 	"time"
+
+	"github.com/shivansh98/kahawatein/internal/adapter/cache"
+	"github.com/shivansh98/kahawatein/internal/adapter/database/models"
+	"github.com/shivansh98/kahawatein/internal/constant"
 
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/spf13/viper"
@@ -52,6 +53,7 @@ func IsUserExists(ctx context.Context, u *models.User) bool {
 		if strings.Trim(res.Err().Error(), " ") == "mongo: no documents in result" {
 			return false
 		}
+		log.Println(res.Err().Error())
 		return true
 	}
 	var resp models.User

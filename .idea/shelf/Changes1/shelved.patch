@@ -1,0 +1,24 @@
+Index: internal/dto/unsplash.go
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/internal/dto/unsplash.go b/internal/dto/unsplash.go
+new file mode 100644
+--- /dev/null	(date 1711360369038)
++++ b/internal/dto/unsplash.go	(date 1711360369038)
+@@ -0,0 +1,14 @@
++package dto
++
++type UnsplashRespose struct {
++	Response struct {
++		Results []struct {
++			Links struct {
++				Download         string `json:"download"`
++				DownloadLocation string `json:"download_location"`
++				Html             string `json:"html"`
++				Self             string `json:"self"`
++			} `json:"links"`
++		} `json:"response"`
++	}
++}
